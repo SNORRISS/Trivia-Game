@@ -49,10 +49,28 @@ function divCreate() {
   for (i = 0; i < 4; i++) {
     var newRadio = $("<input type = 'radio' >");
     var rand = getRandom(ansArray.length, 0);
-    var newLabel = $("<label for = '" + ansArray[rand] + "'>");
+    var newLabel = $(
+      "<label for = '" +
+        ansArray[rand]
+          .replace(/&quot;/g, '"')
+          .replace(/&#039;/g, "'")
+          .replace(/&eacute;/g, "é") +
+        "'>"
+    );
 
-    newRadio.attr("id", ansArray[rand]);
-    newLabel.text(ansArray[rand]);
+    newRadio.attr(
+      "id",
+      ansArray[rand]
+        .replace(/&quot;/g, '"')
+        .replace(/&#039;/g, "'")
+        .replace(/&eacute;/g, "é")
+    );
+    newLabel.text(
+      ansArray[rand]
+        .replace(/&quot;/g, '"')
+        .replace(/&#039;/g, "'")
+        .replace(/&eacute;/g, "é")
+    );
 
     ansArray.splice(rand, 1);
     newAnswers.append(newRadio);
