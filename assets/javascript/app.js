@@ -2,7 +2,7 @@ var questions = [];
 var queryURL =
   "https://opentdb.com/api.php?amount=50&category=15&type=multiple";
 
-var time = 10;
+var time = 30;
 var timeEnd = false;
 var answers = [];
 
